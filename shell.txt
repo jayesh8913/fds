@@ -1,0 +1,26 @@
+def shell_sort(arr):
+    n = len(arr)
+    gap = n // 2
+    while gap > 0:
+        for i in range(gap, n):
+            temp = arr[i]
+            j = i
+            while j >= gap and arr[j - gap] > temp:
+                arr[j] = arr[j - gap]
+                j -= gap
+            arr[j] = temp
+        gap //= 2
+
+# Input: Second-year student percentages
+percentages = [78.5, 88.3, 92.1, 71.4, 85.6, 90.2, 68.9, 76.3]
+
+# Sort the array in ascending order
+shell_sort(percentages)
+
+# Display the sorted percentages
+print("Sorted Percentages:", percentages)
+
+# Display the top five scores
+top_five = percentages[-5:]  # Get the last 5 scores
+top_five.reverse()  # Reverse to display in descending order
+print("Top Five Scores:", top_five)

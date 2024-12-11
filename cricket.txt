@@ -1,0 +1,73 @@
+student = []
+n = int(input("Enter the number of students in the class: "))
+for i in range(n):
+    a = input("Enter name of student: ")
+    student.append(a)
+print("List of students in the class:", student)
+
+# List of students who play cricket
+cric = []
+n1 = int(input("Enter the number of students who play cricket: "))
+for i in range(n1):
+    a = input("Enter name of student who plays cricket: ")
+    cric.append(a)
+
+# List of students who play badminton
+bad = []
+n2 = int(input("Enter the number of students who play badminton: "))
+for i in range(n2):
+    a = input("Enter name of student who plays badminton: ")
+    bad.append(a)
+
+# List of students who play football
+foot = []
+n3 = int(input("Enter the number of students who play football: "))
+for i in range(n3):
+    a = input("Enter name of student who plays football: ")
+    foot.append(a)
+
+# Function to find students who play both cricket and badminton
+def cricANDbad(a, b):
+    cb = []
+    for i in a:
+        if i in b:
+            cb.append(i)
+    return cb
+
+# Function to find students who play either cricket or badminton but not both
+def cribad(a, b):
+    corb = []
+    for i in a:
+        if i not in b:
+            corb.append(i)
+    for i in b:
+        if i not in a:
+            corb.append(i)
+    return corb
+
+# Function to find students who neither play cricket nor badminton
+def NOTcricNOTbad(a, b, c):
+    ncnb = []
+    for i in c:
+        if i not in a and i not in b:
+            ncnb.append(i)
+    return ncnb
+
+# Main loop to provide options and display results
+flag = 1
+while flag == 1:
+    choice = int(input("1. Both cricket and badminton\n2. Either cricket or badminton\n3. Neither cricket nor badminton\n4. Exit\nEnter your choice: "))
+    if choice == 1:
+        result = cricANDbad(cric, bad)
+        print("Students playing both cricket and badminton:", result)
+    elif choice == 2:
+        result = cribad(cric, bad)
+        print("Students playing either cricket or badminton but not both:", result)
+    elif choice == 3:
+        result = NOTcricNOTbad(cric, bad, student)
+        print("Students playing neither cricket nor badminton:", result)
+    elif choice == 4:
+        flag = 0
+        print("exit")
+    else:
+        print("Invalid choice. Please try again.")

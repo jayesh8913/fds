@@ -1,0 +1,16 @@
+marks=[]
+n=int(input("enter no of students present"))
+for i in range(0,n):
+    v=int(input("enter a no:"))
+    marks.append(v)
+for i in range(0,n-1):
+    for j in range(0,n-i-1):
+        if marks[j]>marks[j+1]:
+            marks[j],marks[j+1]=marks[j+1],marks[j]
+print("using bubble sort:" )
+for i in range (0,n):
+  print(marks[i])
+ 
+print("top 5:",marks[-5: ])
+    
+    

@@ -1,0 +1,59 @@
+m1 = []
+r1 = int(input("Enter the number of rows for the first matrix: "))
+c1 = int(input("Enter the number of columns for the first matrix: "))
+for i in range(0, r1):
+    a = []
+    for j in range(0, c1):
+        v = int(input(f"Enter element [{i}][{j}]: "))
+        a.append(v)
+    m1.append(a) 
+print("First Matrix:", m1)
+
+
+m2 = []
+r2 = int(input("Enter the number of rows for the second matrix: "))
+c2 = int(input("Enter the number of columns for the second matrix: "))
+for i in range(0, r2):
+    a = []
+    for j in range(0, c2):
+        v = int(input(f"Enter element [{i}][{j}]: "))
+        a.append(v)
+    m2.append(a) 
+print("Second Matrix:", m2)
+
+
+m3 = [[0 for j in range(c1)] for i in range(r1)]
+for i in range(len(m1)):
+    for j in range(len(m1[0])):
+        m3[i][j] = m1[i][j] + m2[i][j]
+print("Addition:")
+for r in m3:
+    print(r)
+    
+m3 = [[0 for j in range(c1)] for i in range(r1)]
+for i in range(len(m1)):
+    for j in range(len(m1[0])):
+        m3[i][j] = m1[i][j] - m2[i][j]
+print("substraction:")
+for r in m3:
+    print(r)
+    
+m3 = [[0 for j in range(c1)] for i in range(r1)]
+for i in range(len(m1)):
+    for j in range(len(m1[0])):
+        m3[i][j] = m1[j][i] 
+print("transpose of m1:")
+for r in m3:
+    print(r)    
+    
+m3 = [[0 for j in range(c1)] for i in range(r1)]
+for i in range(len(m1)):
+    for j in range(len(m2[0])):
+        for k in range(len(m2)):
+          m3[i][j] += m1[i][k] * m2[k][j]
+print("multiplication:")
+for r in m3:
+    print(r)    
+    
+    
+    
